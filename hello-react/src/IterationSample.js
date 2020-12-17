@@ -12,26 +12,33 @@ const IterationSample = () =>{
 
    const onChange = e => setInputText(e.target.value);
    const onClick = () =>{
-       const nextNames = names.concat({
+       const nextNames = names.concat({ //concat 사용한 이유는 새로운 배열을 만들어주기에
            id: nextId,
            text: inputText
        });
-       setNextId(nextId+1);
-       setNames(nextNames);
-       setInputText('');
+       setNextId(nextId+1); //nextid값에 1 더해줌
+       setNames(nextNames); //names 값 업데이트
+       setInputText(''); //input text 값 비움
    }
    const onKeyPress = e => {
        if(e.key === "Enter"){
             onClick();
         }
    }
+   const onRemove = id =>{
+       const nextNames = names.filter(name => name.id !== id);
+       setNames(nextNames);
+   }
 
-   const namesList = names.map(name => <li key={name.id}>{name.text}</li> );
+   const namesList = names.map(name => (
+            <li key={name.id} onDoubleClick={()=>onRemove(name.id)}>{name.text}</li>
+        )  
+   );
    return (
        <>
        <input value = {inputText} onChange={onChange} onKeyPress={onKeyPress}/>
        <button onClick={onClick}>추가</button>
-        <ul>{namesList}</ul>;
+        <ul>{namesList}</ul>
        </>
    )
 }
