@@ -1,7 +1,7 @@
 
 import './App.css';
 import LifeCycleSample from './LifeCycleSample';
-import React,{ Component } from 'react';
+import { Component } from 'react';
 
 function getRandomColor(){
   return '#' + Math.floor(Math.random() * 16777215).toString(16);
