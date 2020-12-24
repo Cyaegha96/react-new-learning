@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import SassComponent from './SassComponent';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header>
-        <img src={logo} className="logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      렌더링 잘 되는거 맞음?
+      <SassComponent/>
     </div>
   );
-}
+};
 
 export default App;
